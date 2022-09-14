@@ -11,7 +11,6 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.provider.MediaStore
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import com.clbrain.palitra.ColorUtils.colorToHexString
@@ -20,8 +19,6 @@ import com.clbrain.palitra.MainActivity
 import com.clbrain.palitra.Pattern
 import com.clbrain.palitra.R
 import java.util.UUID
-import kotlin.math.max
-import kotlin.math.min
 import kotlin.math.sqrt
 
 class PalitraView @JvmOverloads constructor(
@@ -196,10 +193,17 @@ class PalitraView @JvmOverloads constructor(
 
     fun save() {
         if (currentImage != null) {
-            val bitmap = Bitmap.createBitmap(viewWidth.toInt(), viewHeight.toInt(), Bitmap.Config.ARGB_8888)
+            val ratio = savedPicture!!.width.toFloat() / currentImage!!.width
+            val bitmap = Bitmap.createBitmap((viewWidth * ratio).toInt(), (viewHeight * ratio).toInt(), Bitmap.Config.ARGB_8888)
             val canvas = Canvas()
             canvas.setBitmap(bitmap)
-            canvas.drawBitmap(currentImage!!, startX - (width - viewWidth) / 2f, startY - (height - viewHeight) / 2f, mainPaint)
+            canvas.drawBitmap(
+                savedPicture!!,
+                (startX - (width - viewWidth) / 2f) * ratio,
+                (startY - (height - viewHeight) / 2f) * ratio,
+                mainPaint
+            )
+            canvas.scale(ratio, ratio)
             for (i in 0 until pattern.count) {
                 drawColorRect(canvas, pattern.getPatternBounds(i), viewWidth.toInt(), viewHeight.toInt(), colorPaints[i])
             }
