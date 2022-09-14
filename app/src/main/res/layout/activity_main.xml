@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/main_activity_layout"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/btn_add_img"
+        android:layout_margin="10dp"
+        style="@style/TextButton"
+        android:text="ADD"/>
+
+    <TextView
+        android:id="@+id/btn_save"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        style="@style/TextButton"
+        android:text="SAVE"/>
+
+    <com.clbrain.palitra.palitra_view.PalitraView
+        android:id="@+id/palitra"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btn_add_img"
+        android:layout_above="@id/pager_layout"
+        android:layout_gravity="center_horizontal" />
+
+    <RelativeLayout
+        android:id="@+id/pager_layout"
+        android:elevation="20dp"
+        android:background="@drawable/dialog_background"
+        android:layout_width="wrap_content"
+        android:layout_above="@id/tabs"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:foregroundGravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        ads:tabIndicatorColor="@color/colorPrimary"
+        ads:tabIndicatorGravity="top"
+        ads:tabIndicatorHeight="2dp"
+        ads:tabTextAppearance="@style/UnselectedTabTextAppearance"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_bar_height"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tabs"
+        ads:tabGravity="fill"
+        android:elevation="20dp"
+        android:background="@drawable/tab_bar_background"
+        ads:tabMode="fixed"/>
+
+</RelativeLayout>

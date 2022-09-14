@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patterns: "/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/layout_with_patterns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bottom_triptych"
+                android:id="@+id/bottom_triptych"/>
+
+            <ImageButton
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bottom_polyptych4"
+                android:id="@+id/bottom_polyptych4"/>
+
+            <ImageButton
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bottom_polyptych5"
+                android:id="@+id/bottom_polyptych5"/>
+
+            <ImageButton
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/corner_triptych"
+                android:id="@+id/corner_triptych"/>
+
+            <ImageButton
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/right_triptych"
+                android:id="@+id/right_triptych"/>
+
+            <ImageButton
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/four_lines"
+                android:id="@+id/four_lines"/>
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>
